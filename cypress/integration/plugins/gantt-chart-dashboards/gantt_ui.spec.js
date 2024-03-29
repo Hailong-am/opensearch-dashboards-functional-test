@@ -129,7 +129,11 @@ describe('Configure panel settings', { defaultCommandTimeout: 20000 }, () => {
     cy.visit(`${BASE_PATH}/app/visualize#`);
     cy.get('.euiFieldSearch').focus().type(GANTT_VIS_NAME);
     cy.wait(2000);
-    cy.contains(GANTT_VIS_NAME).should('exist').click({ force: true });
+    cy.get('[data-test-subj="itemsInMemTable"]')
+      .contains(GANTT_VIS_NAME)
+      .click({
+        force: true,
+      });
     cy.contains('Panel settings').click({ force: true });
   });
 
