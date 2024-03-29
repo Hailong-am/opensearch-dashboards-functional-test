@@ -84,11 +84,15 @@ describe(
       CURRENT_TENANT.newTenant = 'private';
       cy.visit(`${BASE_PATH}/app/visualize#`);
       cy.get('.euiFieldSearch').focus().type(GANTT_VIS_NAME);
+      cy.wait(2000);
       cy.get('[data-test-subj="itemsInMemTable"]')
         .contains(GANTT_VIS_NAME)
         .click({
           force: true,
         });
+      cy.window.then((win) => {
+        cy.log(win.url);
+      });
     });
 
     it('Renders no data message', () => {
