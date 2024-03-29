@@ -90,9 +90,6 @@ describe(
         .click({
           force: true,
         });
-      cy.window.then((win) => {
-        cy.log(win.url);
-      });
     });
 
     it('Renders no data message', () => {
