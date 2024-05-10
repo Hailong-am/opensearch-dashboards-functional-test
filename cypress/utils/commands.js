@@ -17,7 +17,7 @@ export const ADMIN_AUTH = {
 };
 
 export const CURRENT_TENANT = {
-  defaultTenant: 'private',
+  defaultTenant: 'global',
   set newTenant(changedTenant) {
     this.defaultTenant = changedTenant;
   },
